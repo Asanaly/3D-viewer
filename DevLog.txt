@@ -1,0 +1,10 @@
+9/21/2024
+- Currently working on generating mesh. Done working with basic object class and vectors class. Done with reflections.
+
+-Stopped working on square plane for a while. Prioratize light for now.
+
+-Added perspective
+
+-Added sphere, and reflections. Not tested.
+
+-Mesh generator kinda works, not sure though. Some bugs with reflection. Try checking how the normal vector.
