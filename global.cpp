@@ -13,12 +13,12 @@ Vector3 set_vec(double x, double y, double z){
 }
 
 void print_vec(Vector3 vec){
-    printf("Vector:(%lf %lf %lf)\n", vec.x, vec.y, vec.z);
+    printf("Vector:(%lf, %lf, %lf)\n", vec.x, vec.y, vec.z);
 }
 
 
 void print_point(Point3 p){
-    printf("Point:(%lf %lf %lf)\n", p.x, p.y, p.z);
+    printf("Point:(%lf, %lf, %lf)\n", p.x, p.y, p.z);
 }
 
 double generateRandomValue(double l, double r) {

@@ -8,3 +8,23 @@
 -Added sphere, and reflections. Not tested.
 
 -Mesh generator kinda works, not sure though. Some bugs with reflection. Try checking how the normal vector.
+
+-I think reflection now works fine
+
+-I will add the idea of tacking average of neighboring light sources.
+
+-We need to reflect only from the closest point that satisfy onVector.
+
+-Reflection works good I guess
+
+-Disabeled depths view for now
+
+-onLight function should be in every class that inherit object
+
+-Looking for no reflection bug
+
+-When there are two light, works worse
+
+-Reflection don't work when light is on the right
+
+- there are a big mixup in point coordinates in Sphere Mesh

@@ -10,7 +10,18 @@ class Object{
     // Maybe add colour later
     public:
         
+        short int intensity = 1;
+
         Point3 coord;
+
+        virtual Ray ray_hit(Point3 p_0, Vector3 direction){
+            cout << "Object ray_hit error" << endl;
+            return {{0,0,0}, {0,0,0}};
+        }
+
+        virtual bool on_light(Point3 a, Vector3 dir){
+            return 0;
+        }
 
         vector<triangle>Mesh;
 

@@ -14,6 +14,8 @@ class VectorSolver{
         
         static double dot(Vector3 a, Vector3 b);
 
+        static double dist(Point3 a, Point3 b);
+
         static bool onVector(Point3 p_0, Vector3 vect, Point3 p_1);
 
         static Vector3 crossP(Vector3 a, Vector3 b);
@@ -27,6 +29,10 @@ class VectorSolver{
         static bool equall(Vector3 a, Vector3 b);
         
         static Vector3 reflect_Surf(Vector3 ray, Vector3 surf);
+
+        static double magnitude(Vector3 vect);
+
+        static Vector3 normalize(Vector3 vect);
 };
 
 #endif

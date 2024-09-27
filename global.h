@@ -6,8 +6,9 @@
 using namespace std;
 
 
+const int INF = 9999999;
 const bool DEBUG = true;
-const double PRECISION = 0.1;
+const double PRECISION = 0.001;
 const double TRIANGLES = 100;
 
 typedef struct{

@@ -9,15 +9,16 @@
 using namespace std;
 
 
-class Light : Object{
+class Light : public Object{
 
     public:
-        short int intensity;
         double radius;
         
         Light(Point3 pos, double rad, double intensity);
 
-        double on_light(Point3 a, Vector3 dir);
+        bool on_light(Point3 a, Vector3 dir);
+
+        Ray ray_hit(Point3 p_0, Vector3 direction);
 
 };
 
