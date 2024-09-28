@@ -11,7 +11,7 @@
 class Sphere : public Object{
     public:
 
-        short int intensity = 1; 
+        short int intensity = 0; 
 
         double radius;
 
@@ -20,8 +20,6 @@ class Sphere : public Object{
         void generate_mesh(Point3 pos, double radius, int points);
 
         bool on_light(Point3 a, Vector3 dir);
-        
-        Ray ray_hit(Point3 p_0, Vector3 direction);
 
         Sphere(Point3 pos, double radius);
 

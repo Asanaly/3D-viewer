@@ -11,17 +11,23 @@ const bool DEBUG = true;
 const double PRECISION = 0.001;
 const double TRIANGLES = 100;
 
-typedef struct{
+struct Vector3{
     double x;
     double y;
     double z;
-}Vector3;
 
-typedef struct{
+};
+
+struct Point3{
     double x;
     double y;
     double z;
-}Point3;
+};
+
+
+Point3 vect_to_point(Vector3 v);
+
+Vector3 point_to_vect(Point3 p);
 
 typedef struct{
     Point3 p;

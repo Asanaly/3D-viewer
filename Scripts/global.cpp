@@ -17,6 +17,14 @@ void print_vec(Vector3 vec){
 }
 
 
+Point3 vect_to_point(Vector3 v){
+    return {v.x, v.y, v.z};
+}
+
+Vector3 point_to_vect(Point3 p){
+    return {p.x, p.y, p.z} ;
+}
+
 void print_point(Point3 p){
     printf("Point:(%lf, %lf, %lf)\n", p.x, p.y, p.z);
 }

@@ -11,7 +11,9 @@ class VectorSolver{
         static Vector3 get_normal_triangle(triangle tr);
 
         VectorSolver();
+
         
+
         static double dot(Vector3 a, Vector3 b);
 
         static double dist(Point3 a, Point3 b);
@@ -33,6 +35,13 @@ class VectorSolver{
         static double magnitude(Vector3 vect);
 
         static Vector3 normalize(Vector3 vect);
+
+        static Vector3 project_to_plane(Vector3 normal, Point3 point_plane, Point3 point );
+
+        static Vector3 vector_from_points(Point3 a, Point3 b);
+
+        static bool within_triangle(triangle tr , Vector3 camera, Point3 ray_from, Vector3 plane_normal);
+
 };
 
 #endif

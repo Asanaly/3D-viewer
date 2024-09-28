@@ -28,3 +28,19 @@
 -Reflection don't work when light is on the right
 
 - there are a big mixup in point coordinates in Sphere Mesh
+
+
+9/27/2024
+
+- Fixed mesh of sphere. Now problem with no reflection of Square. Wonder if my approach is correct.
+
+- Moved on hit to the object class
+
+- Currently working on withing triangle function. Used method by projecting points
+on the camera and comparing volumes. 
+
+9/28/2024
+
+- Change in max in raycast
+
+[BUG] Reflection from the current reflected surface in squares

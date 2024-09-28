@@ -3,6 +3,10 @@
 
 const double EXC = 99999999999;
 
+bool absolute(double a){
+    return (a < 0) ? -a : a;
+}
+
 double max(double a, double b)
 {
 
@@ -49,7 +53,7 @@ Vector3 VectorSolver::get_normal_triangle(triangle tr)
 
     Vector3 normal = VectorSolver::crossP(vec1, vec2);
 
-    return mult(normal, -1);
+    return  normalize ( mult(normal, -1) );
 }
 
 double VectorSolver::dot(Vector3 a, Vector3 b)
@@ -71,6 +75,8 @@ bool VectorSolver::onVector(Point3 p_0, Vector3 vect, Point3 p_1)
 
     double mx, mn;
 
+    if(t <= 0)return false;
+
     if ((vect.x * t + p_0.x) - p_1.x > PRECISION)
         return false;
 
@@ -82,6 +88,7 @@ bool VectorSolver::onVector(Point3 p_0, Vector3 vect, Point3 p_1)
 
     return true;
 }
+
 Vector3 VectorSolver::crossP(Vector3 a, Vector3 b)
 {
     Vector3 product;
@@ -152,7 +159,48 @@ Vector3 VectorSolver::reflect_Surf(Vector3 ray, Vector3 surf)
     return refl;
 }
 
-/*
-int main(){
-    print_vec(VectorSolver::reflect_Surf({1,0,0} , {-1,1,0}));
-}*/
+
+Vector3 VectorSolver :: vector_from_points(Point3 a, Point3 b){
+    return {b.x - a.x , b.y - a.y , b.z - a.z} ;
+}
+
+Vector3 VectorSolver :: project_to_plane(Vector3 normal, Point3 point_plane, Point3 p ){
+    Vector3 point = {p.x, p.y, p.z};
+    Vector3 point_plane_v = {point_plane.x, point_plane.y, point_plane.z};
+    Vector3 v = VectorSolver::minus(point, point_plane_v);
+
+    Vector3 v_proj = VectorSolver::mult(normal,VectorSolver::dot(v , normal));
+    return VectorSolver::minus(point,v_proj);
+}    
+
+double triangle_area(Point3 a, Point3 b, Point3 c) {
+    // Area = 0.5 * || (b - a) x (c - a) ||
+    Vector3 ab = VectorSolver::vector_from_points(a, b);
+    Vector3 ac = VectorSolver::vector_from_points(a, c);
+    Vector3 crossProduct = VectorSolver::crossP(ab, ac);
+    return 0.5 * VectorSolver::magnitude(crossProduct);
+}
+
+bool VectorSolver :: within_triangle(triangle tr , Vector3 camera, Point3 ray_from , Vector3 plane_normal){
+    // Computes if ray touches triangle
+    // Return false in case if it is not
+
+    double dot_product = dot(camera, plane_normal); // Assuming you have a dot product function
+
+    if(dot_product >= 0)return 0;
+
+    Vector3 a = VectorSolver::project_to_plane(camera, ray_from, tr.a) ;
+    Vector3 b = VectorSolver::project_to_plane(camera, ray_from, tr.b) ;
+    Vector3 c = VectorSolver::project_to_plane(camera, ray_from, tr.c) ;
+
+    double A = triangle_area(vect_to_point(a), vect_to_point(b), vect_to_point(c));
+
+    // Calculate areas of sub-triangles formed with point p
+    double A1 = triangle_area(ray_from, vect_to_point(b), vect_to_point(c));
+    double A2 = triangle_area(vect_to_point(a), ray_from, vect_to_point(c));
+    double A3 = triangle_area(vect_to_point(a), vect_to_point(b), ray_from);
+
+    // Check if the sum of sub-triangle areas equals the whole triangle's area (within a tolerance)
+    return (absolute(A - (A1 + A2 + A3)) < 1e-6) ;
+
+}
