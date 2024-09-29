@@ -1,8 +1,4 @@
-Here's a funky readme file for your project:
-
----
-
-# 🎉 3D ASCII Graphics - The Ultimate Time Waster 🎉
+# 3D ASCII Graphics - The Super-Mega-Puper-Extra-Ultimate Time Waster
 
 ### Welcome, brave soul!
 This project? Yeah, it’s a **BIG waste of time**. I mean, if you're looking to procrastinate in style, you’ve come to the right place! But let’s get one thing straight: I *respect* Newton, the man, the legend. This would’ve been calculus 3 if he'd had ASCII art back then.
