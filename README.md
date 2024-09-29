@@ -1,4 +1,4 @@
-# 3D ASCII Graphics - The Super-Mega-Puper-Extra-Ultimate Time Waster
+🎉# 3D ASCII Graphics - The Super-Mega-Puper-Extra-Ultimate Time Waster🎉
 
 ### Welcome, brave soul!
 
